@@ -1,0 +1,11 @@
+
+Companies struggle to extract relevant information, which provides them erroneous reports, data loss, and paperwork overload. In such situations, companies cannot rely only on OCR, and this is where CMR becomes a potential disruptor.
+
+CMR can automate data extraction from structured and unstructured documents that may contain:- 
+
+Checkboxes
+Tables
+Images
+Signatures
+Handwriting
+Cursive, and more. 
