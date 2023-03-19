@@ -1,0 +1,4 @@
+NUM OF A: 0
+NUM OF B: 0
+NUM OF C: 0
+NUM OF D: 1
