@@ -72,26 +72,30 @@ class Subject:
         
 
     def __update_data(self):
-        print("--UPDATE SUBJECT INFORMATION--")
-        print("ENTER SUBJECT ID:")
-        sub_ID_input = input("STUDENT ID: ")
-        self.__input_sub_info()
-        sql_cmd =   "UPDATE subject SET subject_name = %s WHERE subject_id = %s"
-        self.__db_cursor.execute(sql_cmd, (self.__sub_name, sub_ID_input))
-        if (self.__db_conn.commit()):
-            logger.error("UPDATE SUBJECT FAILED!")               
-        else:
-            logger.info("UPDATE SUBJECT SUCCESSFULLY!") 
+        while True:
+            print("--UPDATE SUBJECT INFORMATION--")
+            print("ENTER SUBJECT ID:")
+            sub_ID_input = input("STUDENT ID: ")
+            self.__input_sub_info()
+            sql_cmd =   "UPDATE subject SET subject_name = %s WHERE subject_id = %s"
+            self.__db_cursor.execute(sql_cmd, (self.__sub_name, sub_ID_input))
+            if (self.__db_conn.commit()):
+                logger.error("UPDATE SUBJECT FAILED!")               
+            else:
+                logger.info("UPDATE SUBJECT SUCCESSFULLY!") 
+            print('ID NOT FOUND')
 
     def __delete_data(self):
-        print("--FIND SUBJECT INFORMATION--")
-        sub_ID_input = input("ENTER SUBJECT ID: ")
-        sql_cmd =   "DELETE FROM subject WHERE subject_id = %s"
-        self.__db_cursor.execute(sql_cmd, [sub_ID_input])
-        if(self.__db_conn.commit()):
-            logger.error("DELETE SUBJECT FAILED!")
-        else:
-            logger.info("DELETE SUBJECT SUCCESSFULLY!")
+        while True:
+            print("--DELETE SUBJECT--")
+            sub_ID_input = input("ENTER SUBJECT ID: ")
+            sql_cmd =   "DELETE FROM subject WHERE subject_id = %s"
+            self.__db_cursor.execute(sql_cmd, [sub_ID_input])
+            if(self.__db_conn.commit()):
+                logger.error("DELETE SUBJECT FAILED!")
+            else:
+                logger.info("DELETE SUBJECT SUCCESSFULLY!")
+            print('ID NOT FOUND')
                 
 
     def __search_data(self):

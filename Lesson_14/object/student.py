@@ -119,27 +119,31 @@ class Student:
     def __update_data(self):
         print("--UPDATE STUDENT INFORMATION--")
         print("ENTER STUDENT ID:")
-    # while True:
-        stu_ID_input = input("STUDENT ID: ")
-        self.__input_stu_info()
-        sql_cmd =   "UPDATE students SET stu_name = %s, stu_birthdate = %s, stu_sex = %s, stu_address = %s, stu_phone = %s, stu_email = %s WHERE stu_id = %s"
-        self.__db_cursor.execute(sql_cmd, (self.__stu_name, self.__stu_birthdate, self.__stu_sex, self.__stu_address, self.__stu_phone, self.__stu_email, stu_ID_input))
-        if (self.__db_conn.commit()):
-            logger.error("UPDATE STUDENT FAILED!")               
-        else:
-            logger.info("UPDATE STUDENT SUCCESSFULLY!") 
+        while True:
+            stu_ID_input = input("STUDENT ID: ")
+            self.__input_stu_info()
+            sql_cmd =   "UPDATE students SET stu_name = %s, stu_birthdate = %s, stu_sex = %s, stu_address = %s, stu_phone = %s, stu_email = %s WHERE stu_id = %s"
+            self.__db_cursor.execute(sql_cmd, (self.__stu_name, self.__stu_birthdate, self.__stu_sex, self.__stu_address, self.__stu_phone, self.__stu_email, stu_ID_input))
+            if (self.__db_conn.commit()):
+                logger.error("UPDATE STUDENT FAILED!")               
+            else:
+                logger.info("UPDATE STUDENT SUCCESSFULLY!") 
+            print('ID NOT FOUND')
+
             
 
     def __delete_data(self):
-    # while True:
-        print("--FIND STUDENT INFORMATION--")
-        stu_ID_input = input("ENTER STUDENT ID: ")
-        sql_cmd =   "DELETE FROM students WHERE stu_id = %s"
-        self.__db_cursor.execute(sql_cmd, [stu_ID_input])
-        if(self.__db_conn.commit()):
-            logger.error("DELETE STUDENT FAILED!")
-        else:
-            logger.info("DELETE STUDENT SUCCESSFULLY!")
+        while True:
+            print("--FIND STUDENT INFORMATION--")
+            stu_ID_input = input("ENTER STUDENT ID: ")
+            sql_cmd =   "DELETE FROM students WHERE stu_id = %s"
+            self.__db_cursor.execute(sql_cmd, [stu_ID_input])
+            if(self.__db_conn.commit()):
+                logger.error("DELETE STUDENT FAILED!")
+            else:
+                logger.info("DELETE STUDENT SUCCESSFULLY!")
+            print('ID NOT FOUND')
+
            
     def __search_data(self):
         print("--FIND STUDENT INFORMATION--")
